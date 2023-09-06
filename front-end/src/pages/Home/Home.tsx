@@ -1,9 +1,9 @@
-import { CircleAroundClick } from "../../components/CircleAroundClick/CircleAroundClick"
+import { Selector } from "../../components/Selector/Selector"
 
 export const Home = () => {
   return (
     <main>
-      <CircleAroundClick />
+      <Selector />
     </main>
   )
 }
