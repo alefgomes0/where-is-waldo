@@ -29,11 +29,13 @@ export const Selector = () => {
       ? position.x + 28 + "px"
       : position.x - 162 + "px";
 
-
   useEffect(() => {
     const changeCirclePosition = (e: MouseEvent) => {
-      setPosition({ x: e.pageX, y: e.pageY });
+      setPosition({ x: e.clientX, y: e.clientY });
       setShowSelector(!showSelector);
+      console.log(position.x, position.y)
+      console.log(e.pageX, e.pageY)
+      console.log(window.innerWidth, window.innerHeight)
     };
 
     window.addEventListener("click", changeCirclePosition);
@@ -64,7 +66,7 @@ export const Selector = () => {
       }`}
     >
       <div
-        className="fixed border-2 border-red-500 border-dotted rounded-full w-[50px] h-[50px]"
+        className="fixed border-4 border-red-900 border-dashed rounded-full w-[50px] h-[50px]"
         style={{
           ...circleStyle,
         }}
