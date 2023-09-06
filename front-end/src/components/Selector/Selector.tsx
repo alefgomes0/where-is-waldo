@@ -9,6 +9,27 @@ export const Selector = () => {
   const [position, setPosition] = useState<PositionProps>({ x: 0, y: 0 });
   const [showSelector, setShowSelector] = useState<boolean>(false);
 
+  const topPosition =
+    position.y + 300 >= window.innerHeight
+      ? position.y - 285 + "px"
+      : position.y + "px";
+
+  const bottomPosition =
+    position.y + 300 >= window.innerHeight
+      ? position.y + "px"
+      : position.y + 200 + "px";
+
+  const rightPosition =
+    position.x + 200 >= window.innerWidth + 20
+      ? position.x - 200 + "px"
+      : position.x + 200 + "px";
+
+  const leftPosition =
+    position.x + 200 <= window.innerWidth + 20
+      ? position.x + 28 + "px"
+      : position.x - 162 + "px";
+
+
   useEffect(() => {
     const changeCirclePosition = (e: MouseEvent) => {
       setPosition({ x: e.pageX, y: e.pageY });
@@ -28,10 +49,10 @@ export const Selector = () => {
   };
 
   const dropDownStyle = {
-    top: position.y + "px",
-    bottom: position.y + 200 + "px",
-    right: position.x + 200 + "px",
-    left: position.x + 28 + "px",
+    top: topPosition,
+    bottom: bottomPosition,
+    right: rightPosition,
+    left: leftPosition,
   };
 
   return (
