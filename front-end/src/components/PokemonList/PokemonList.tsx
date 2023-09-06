@@ -1,9 +1,28 @@
+import axios from "axios";
+
 type PokemonListProps = {
   x: number;
   y: number;
+  pageYPosition: number;
 };
 
-export const PokemonList = ({ x, y }: PokemonListProps) => {
+export const PokemonList = ({ x, y, pageYPosition }: PokemonListProps) => {
+  const checkSelectedPokemon = async (name: string) => {
+    try {
+      await axios({
+        method: "post",
+        url: "http://localhost:3000/pokemon",
+        data: {
+          name: name,
+          width: window.innerWidth / x,
+          height: pageYPosition
+        }
+      })
+    } catch (err) {
+      console.error(err);
+    }
+  };
+
   const topPosition = y + 300 >= window.innerHeight ? y - 285 + "px" : y + "px";
 
   const bottomPosition =
@@ -27,7 +46,10 @@ export const PokemonList = ({ x, y }: PokemonListProps) => {
       className="grid grid-cols-1 grid-rows-3 fixed w-max h-72 bg-neutral-600 rounded"
       style={{ ...dropDownStyle }}
     >
-      <button className="flex items-center w-full justify-self-center w-full h-full hover:bg-neutral-500 transition-colors gap-1 px-2">
+      <button
+        onClick={() => checkSelectedPokemon("Warturtle")}
+        className="flex items-center w-full justify-self-center w-full h-full hover:bg-neutral-500 transition-colors gap-1 px-2"
+      >
         <img
           src="/images/warturtle.png"
           alt="warturtle, the pokemon"

@@ -1,16 +1,18 @@
-const Pokemon = require("../models/pokemon")
-const asyncHandler = require("express-async-handler")
+const Pokemon = require("../models/pokemon");
+const asyncHandler = require("express-async-handler");
 
-exports.get = asyncHandler(async (req, res, next) => {
-  const newPokemon = new Pokemon({
-    name: "Jolteon",
-    min_height: 276,
-    max_height: 321,
-    min_width_ratio: 1.92,
-    max_width_ratio: 2.75,
-    found: false
-  })
+exports.post = asyncHandler(async (req, res, next) => {
+  console.log(req.body);
+  const clickedPokemon = await Pokemon.findOne({ name: req.body.name });
+  console.log(clickedPokemon);
+  const rightAnswer =
+    clickedPokemon.min_width_ratio <= req.body.width &&
+    clickedPokemon.max_width_ratio >= req.body.width &&
+    clickedPokemon.min_height <= req.body.height &&
+    clickedPokemon.max_height >= req.body.height;
 
-  await newPokemon.save()
-  res.json("saved")
-})
+  if (rightAnswer) console.log("acertou miseraviii");
+  else console.log("errrouuu");
+
+  res.json("ok");
+});
