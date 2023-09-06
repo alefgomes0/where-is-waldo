@@ -17,7 +17,7 @@ export const CircleAroundClick = () => {
     window.addEventListener("click", changeCirclePosition);
 
     return () => window.removeEventListener("click", changeCirclePosition);
-  });
+  }, [position]);
 
   const circleStyle = {
     top: position.y - 25 + "px",
