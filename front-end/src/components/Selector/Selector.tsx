@@ -19,10 +19,6 @@ export const Selector = () => {
       setPosition({ x: e.clientX, y: e.clientY });
       setShowSelector(!showSelector);
       pageYPosition.current = e.pageY;
-      console.log(position.x, position.y);
-      console.log(e.pageX, e.pageY);
-      console.log("aaaaaa", pageYPosition.current);
-      console.log(window.innerWidth, window.innerHeight);
     };
 
     window.addEventListener("click", changeCirclePosition);
@@ -35,8 +31,8 @@ export const Selector = () => {
       ref={divRef}
       className={`${
         showSelector
-          ? "opacity-100 pointer-events-auto"
-          : "opacity-0 pointer-events-none"
+          ? "grid"
+          : "hidden"
       }`}
     >
       <CircleAround x={position.x} y={position.y} />
@@ -44,6 +40,7 @@ export const Selector = () => {
         x={position.x}
         y={position.y}
         pageYPosition={pageYPosition.current}
+        hideSelector={() => setShowSelector(!showSelector)}
       />
     </div>
   );

@@ -4,9 +4,15 @@ type PokemonListProps = {
   x: number;
   y: number;
   pageYPosition: number;
+  hideSelector: () => void;
 };
 
-export const PokemonList = ({ x, y, pageYPosition }: PokemonListProps) => {
+export const PokemonList = ({
+  x,
+  y,
+  pageYPosition,
+  hideSelector,
+}: PokemonListProps) => {
   const checkSelectedPokemon = async (name: string) => {
     try {
       await axios({
@@ -15,12 +21,17 @@ export const PokemonList = ({ x, y, pageYPosition }: PokemonListProps) => {
         data: {
           name: name,
           width: window.innerWidth / x,
-          height: pageYPosition
-        }
-      })
+          height: pageYPosition,
+        },
+      });
     } catch (err) {
       console.error(err);
     }
+  };
+
+  const handleOnClick = (pokemonName: string) => {
+    checkSelectedPokemon(pokemonName);
+    hideSelector();
   };
 
   const topPosition = y + 300 >= window.innerHeight ? y - 285 + "px" : y + "px";
@@ -47,7 +58,7 @@ export const PokemonList = ({ x, y, pageYPosition }: PokemonListProps) => {
       style={{ ...dropDownStyle }}
     >
       <button
-        onClick={() => checkSelectedPokemon("Warturtle")}
+        onClick={() => handleOnClick("Warturtle")}
         className="flex items-center w-full justify-self-center w-full h-full hover:bg-neutral-500 transition-colors gap-1 px-2"
       >
         <img
@@ -57,7 +68,10 @@ export const PokemonList = ({ x, y, pageYPosition }: PokemonListProps) => {
         />
         <h5 className="text-neutral-200">Warturtle</h5>
       </button>
-      <button className="flex items-center w-full justify-self-center w-full h-full hover:bg-neutral-500 transition-colors gap-1 px-2">
+      <button
+        onClick={() => handleOnClick("Jolteon")}
+        className="flex items-center w-full justify-self-center w-full h-full hover:bg-neutral-500 transition-colors gap-1 px-2"
+      >
         <img
           src="/images/jolteon.png"
           alt="jolteon, the pokemon"
@@ -65,7 +79,10 @@ export const PokemonList = ({ x, y, pageYPosition }: PokemonListProps) => {
         />
         <h5 className="text-neutral-200">Jolteon</h5>
       </button>
-      <button className="flex items-center w-full justify-self-center w-full h-full hover:bg-neutral-500 transition-colors gap-1 px-2">
+      <button
+        onClick={() => handleOnClick("Ivysaur")}
+        className="flex items-center w-full justify-self-center w-full h-full hover:bg-neutral-500 transition-colors gap-1 px-2"
+      >
         <img
           src="/images/ivysaur.png"
           alt="ivysaur, the pokemon"

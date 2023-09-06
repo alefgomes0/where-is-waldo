@@ -13,7 +13,7 @@ export const CircleAround = ({ x, y }: CircleAroundProps) => {
 
   return (
     <div
-      className="fixed border-4 border-red-900 border-dashed rounded-full w-[50px] h-[50px]"
+      className="fixed border-4 border-black border-dashed rounded-full w-[50px] h-[50px]"
       style={{
         ...circleStyle,
       }}

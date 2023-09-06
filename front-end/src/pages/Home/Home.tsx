@@ -1,3 +1,4 @@
+import { MainGameLoop } from "../../components/MainGameLoop/MainGameLoop"
 import { Selector } from "../../components/Selector/Selector"
 
 export const Home = () => {
@@ -8,7 +9,7 @@ export const Home = () => {
         alt="an amalgamation of pokemons"
         className="w-full h-[1000px]"
       />
-      <Selector />
+      <MainGameLoop />
     </main>
   )
 }
