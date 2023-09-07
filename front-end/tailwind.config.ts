@@ -6,14 +6,12 @@ export default {
   ],
   theme: {
     extend: {
-      animation: {
+      keyframes: {
         fade: {
           "0%": { opacity: "0%" },
-          "25%": { opacity: "50%" },
-          "50%": { opacity: "100%" },
-          "75%": { opacity: "50%" },
+          "25%": { opacity: "100%" },
+          "75%": { opacity: "100%" },
           "100%": { opacity: "0%" }
-
         }
       }
     },

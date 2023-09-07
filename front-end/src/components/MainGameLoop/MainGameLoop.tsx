@@ -7,7 +7,7 @@ export const MainGameLoop = () => {
   const [checkAnswer, setCheckAnswer] = useState<checkAnswer>({
     requestError: "",
     rightAnswer: false,
-    pokemonName: "",
+    pokemonName: "start",
   });
   return (
     <>
@@ -15,6 +15,7 @@ export const MainGameLoop = () => {
         setAnswer={setCheckAnswer}
       />
       <FeedbackMessage
+        key={Math.random()}
         rightAnswer={checkAnswer.rightAnswer}
         pokemonName={checkAnswer.pokemonName}
         requestError={checkAnswer .requestError}
