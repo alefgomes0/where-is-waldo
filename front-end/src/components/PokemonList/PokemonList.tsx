@@ -1,10 +1,12 @@
 import axios from "axios";
+import { checkAnswer } from "../../types/checkAnswer";
 
 type PokemonListProps = {
   x: number;
   y: number;
   pageYPosition: number;
   hideSelector: () => void;
+  setAnswer: React.Dispatch<React.SetStateAction<checkAnswer>>
 };
 
 export const PokemonList = ({
@@ -12,6 +14,7 @@ export const PokemonList = ({
   y,
   pageYPosition,
   hideSelector,
+  setAnswer
 }: PokemonListProps) => {
   const checkSelectedPokemon = async (name: string) => {
     try {

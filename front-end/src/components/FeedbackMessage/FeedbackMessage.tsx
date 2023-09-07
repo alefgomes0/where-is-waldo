@@ -5,7 +5,7 @@ export const FeedbackMessage = ({
   pokemonName,
 }: checkAnswer) => {
   return (
-    <div className="opacity-0">
+    <div className="opacity-0 fixed flex items-center justify-center w-full text-white text-center h-36 bg-black top-[25%]">
       {rightAnswer ? (
         <h3>You've found {pokemonName}!</h3>
       ) : (

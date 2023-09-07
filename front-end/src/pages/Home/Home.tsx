@@ -1,5 +1,4 @@
 import { MainGameLoop } from "../../components/MainGameLoop/MainGameLoop"
-import { Selector } from "../../components/Selector/Selector"
 
 export const Home = () => {
   return (

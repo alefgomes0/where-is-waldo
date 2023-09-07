@@ -10,7 +10,9 @@ export const MainGameLoop = () => {
   });
   return (
     <>
-      <Selector />
+      <Selector
+        setAnswer={setCheckAnswer}
+      />
       <FeedbackMessage
         rightAnswer={checkAnswer.rightAnswer}
         pokemonName={checkAnswer.pokemonName}

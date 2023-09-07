@@ -1,13 +1,18 @@
 import { useEffect, useState, useRef } from "react";
 import { CircleAround } from "../CircleAround/CircleAround";
 import { PokemonList } from "../PokemonList/PokemonList";
+import { checkAnswer } from "../../types/checkAnswer";
 
 type PositionProps = {
   x: number;
   y: number;
 };
 
-export const Selector = () => {
+type SelectorProps = {
+  setAnswer: React.Dispatch<React.SetStateAction<checkAnswer>>
+}
+
+export const Selector = ({ setAnswer }: SelectorProps) => {
   const [position, setPosition] = useState<PositionProps>({ x: 0, y: 0 });
   const [showSelector, setShowSelector] = useState<boolean>(false);
   const divRef = useRef<HTMLDivElement>(null);
@@ -27,20 +32,14 @@ export const Selector = () => {
   }, [position, showSelector]);
 
   return (
-    <div
-      ref={divRef}
-      className={`${
-        showSelector
-          ? "grid"
-          : "hidden"
-      }`}
-    >
+    <div ref={divRef} className={`${showSelector ? "grid" : "hidden"}`}>
       <CircleAround x={position.x} y={position.y} />
       <PokemonList
         x={position.x}
         y={position.y}
         pageYPosition={pageYPosition.current}
         hideSelector={() => setShowSelector(!showSelector)}
+        setAnswer={setAnswer}
       />
     </div>
   );
