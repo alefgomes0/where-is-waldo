@@ -5,6 +5,7 @@ import { FeedbackMessage } from "../FeedbackMessage/FeedbackMessage";
 
 export const MainGameLoop = () => {
   const [checkAnswer, setCheckAnswer] = useState<checkAnswer>({
+    requestError: "",
     rightAnswer: false,
     pokemonName: "",
   });
@@ -16,6 +17,7 @@ export const MainGameLoop = () => {
       <FeedbackMessage
         rightAnswer={checkAnswer.rightAnswer}
         pokemonName={checkAnswer.pokemonName}
+        requestError={checkAnswer .requestError}
       />
     </>
   );

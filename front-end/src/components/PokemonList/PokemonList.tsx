@@ -6,29 +6,34 @@ type PokemonListProps = {
   y: number;
   pageYPosition: number;
   hideSelector: () => void;
-  setAnswer: React.Dispatch<React.SetStateAction<checkAnswer>>
+  setAnswer: React.Dispatch<React.SetStateAction<checkAnswer>>;
 };
+
 
 export const PokemonList = ({
   x,
   y,
   pageYPosition,
   hideSelector,
-  setAnswer
+  setAnswer,
 }: PokemonListProps) => {
   const checkSelectedPokemon = async (name: string) => {
     try {
-      await axios({
+      const response = await axios({
         method: "post",
-        url: "http://localhost:3000/pokemon",
+        url: "http://localhost:3000/pokemon1",
         data: {
           name: name,
           width: window.innerWidth / x,
           height: pageYPosition,
         },
       });
+      response.data.message === "right"
+        ? setAnswer({ requestError: "", rightAnswer: true, pokemonName: name })
+        : setAnswer({ requestError: "", rightAnswer: false, pokemonName: name });
     } catch (err) {
       console.error(err);
+      setAnswer({ requestError: `${(err as Error).message}`, rightAnswer: false, pokemonName: "" })
     }
   };
 
