@@ -21,7 +21,7 @@ export const PokemonList = ({
     try {
       const response = await axios({
         method: "post",
-        url: "http://localhost:3000/pokemon1",
+        url: "http://localhost:3000/pokemon",
         data: {
           name: name,
           width: window.innerWidth / x,
