@@ -10,15 +10,15 @@ export const Header = () => {
       <div className="flex items-center gap-6">
         <div className="flex items-center gap-2">
           <img src="/images/warturtle.png" alt="war turtle, the pokemon" />
-          <h3>Warturtle</h3>
+          <h3 className={`${foundPokemon.includes("Warturtle") ? "line-through decoration-red-300" : ""}`}>Warturtle</h3>
         </div>
         <div className="flex items-center gap-2">
           <img src="/images/jolteon.png" alt="jolteon, the pokemon" />
-          <h3>Jolteon</h3>
+          <h3 className={`${foundPokemon.includes("Jolteon") ? "line-through decoration-red-300" : ""}`}>Jolteon</h3>
         </div>
         <div className="flex items-center gap-2">
           <img src="/images/ivysaur.png" alt="ivysaur, the pokemon" />
-          <h3>Ivysaur</h3>
+          <h3 className={`${foundPokemon.includes("Ivysaur") ? "line-through decoration-red-300" : ""}`}>Ivysaur</h3>
         </div>
       </div>
     </header>
