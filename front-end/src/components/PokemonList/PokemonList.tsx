@@ -1,22 +1,20 @@
 import axios from "axios";
-import { checkAnswer } from "../../types/checkAnswer";
+import { useGameContext } from "../../types/useGameContext";
 
 type PokemonListProps = {
   x: number;
   y: number;
   pageYPosition: number;
   hideSelector: () => void;
-  setAnswer: React.Dispatch<React.SetStateAction<checkAnswer>>;
 };
-
 
 export const PokemonList = ({
   x,
   y,
   pageYPosition,
   hideSelector,
-  setAnswer,
 }: PokemonListProps) => {
+  const { checkAnswer, setCheckAnswer } = useGameContext();
   const checkSelectedPokemon = async (name: string) => {
     try {
       const response = await axios({
@@ -29,11 +27,26 @@ export const PokemonList = ({
         },
       });
       response.data.message === "right"
-        ? setAnswer({ requestError: "", rightAnswer: true, pokemonName: name })
-        : setAnswer({ requestError: "", rightAnswer: false, pokemonName: name });
+        ? setCheckAnswer({
+            requestError: "",
+            rightAnswer: true,
+            pokemonName: name,
+            foundPokemon: checkAnswer.foundPokemon.concat(name),
+          })
+        : setCheckAnswer({
+            requestError: "",
+            rightAnswer: false,
+            pokemonName: name,
+            foundPokemon: [...checkAnswer.foundPokemon]
+          });
     } catch (err) {
       console.error(err);
-      setAnswer({ requestError: `${(err as Error).message}`, rightAnswer: false, pokemonName: "" })
+      setCheckAnswer({
+        requestError: `${(err as Error).message}`,
+        rightAnswer: false,
+        pokemonName: "",
+        foundPokemon: [...checkAnswer.foundPokemon]
+      });
     }
   };
 

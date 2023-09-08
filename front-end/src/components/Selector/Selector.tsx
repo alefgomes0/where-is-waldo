@@ -1,18 +1,13 @@
 import { useEffect, useState, useRef } from "react";
 import { CircleAround } from "../CircleAround/CircleAround";
 import { PokemonList } from "../PokemonList/PokemonList";
-import { checkAnswer } from "../../types/checkAnswer";
-
 type PositionProps = {
   x: number;
   y: number;
 };
 
-type SelectorProps = {
-  setAnswer: React.Dispatch<React.SetStateAction<checkAnswer>>
-}
 
-export const Selector = ({ setAnswer }: SelectorProps) => {
+export const Selector = () => {
   const [position, setPosition] = useState<PositionProps>({ x: 0, y: 0 });
   const [showSelector, setShowSelector] = useState<boolean>(false);
   const divRef = useRef<HTMLDivElement>(null);
@@ -39,7 +34,6 @@ export const Selector = ({ setAnswer }: SelectorProps) => {
         y={position.y}
         pageYPosition={pageYPosition.current}
         hideSelector={() => setShowSelector(!showSelector)}
-        setAnswer={setAnswer}
       />
     </div>
   );
