@@ -1,26 +1,26 @@
 import { useEffect, useState } from "react";
+import { formatTimer } from "../../utils/formatTime";
+import { useGameContext } from "../../types/useGameContext";
 
 export const Timer = () => {
-  const [time, setTime] = useState<number>(0);
+  const [time, setTime] = useState(0);
+  const { gameFinished, setFinishedTime } = useGameContext();
   const [running, setRunning] = useState(true);
 
   useEffect(() => {
+    if (gameFinished) {
+      setFinishedTime(time);
+      setRunning(false);
+    }
+    
     if (!running) return;
+
     const interval = setInterval(() => {
       setTime((prev) => prev + 1);
     }, 1000);
 
     return () => clearInterval(interval);
-  }, [running]);
-
-  const formatTimer = (time: number) => {
-    const hours = Math.floor((time / 60 / 60) % 24).toString().padStart(2, '0');
-    const minutes = Math.floor((time / 60) % 60).toString().padStart(2, '0');
-    const seconds = Math.floor(time % 60).toString().padStart(2, '0');
-  
-    return `${hours}:${minutes}:${seconds}`;
-  };
-  
+  }, [running, setTime, gameFinished, setFinishedTime, time]);
 
   return (
     <div className="justify-self-end">

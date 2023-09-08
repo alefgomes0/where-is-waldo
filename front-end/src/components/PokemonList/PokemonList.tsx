@@ -37,15 +37,13 @@ export const PokemonList = ({
             requestError: "",
             rightAnswer: false,
             pokemonName: name,
-            foundPokemon: [...checkAnswer.foundPokemon]
+            foundPokemon: [...checkAnswer.foundPokemon],
           });
     } catch (err) {
       console.error(err);
       setCheckAnswer({
+        ...checkAnswer,
         requestError: `${(err as Error).message}`,
-        rightAnswer: false,
-        pokemonName: "",
-        foundPokemon: [...checkAnswer.foundPokemon]
       });
     }
   };

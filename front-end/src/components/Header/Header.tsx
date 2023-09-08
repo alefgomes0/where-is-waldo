@@ -5,6 +5,7 @@ export const Header = () => {
   const { checkAnswer } = useGameContext();
   const { foundPokemon } = checkAnswer;
 
+
   return (
     <header className="grid grid-rows-1 grid-cols-[2fr_3fr_1fr] items-center px-8 pt-4 shadow-[0_2px_2px_0_rgba(0,0,0,0.3)] ">
       <h1 className="text-3xl font-semibold">Where is...</h1>
