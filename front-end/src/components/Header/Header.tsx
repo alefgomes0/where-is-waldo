@@ -1,62 +1,31 @@
-import { useEffect, useState } from "react";
 import { useGameContext } from "../../types/useGameContext";
 import { Timer } from "../Timer/Timer";
 
 export const Header = () => {
   const { checkAnswer } = useGameContext();
   const { foundPokemon } = checkAnswer;
-  const [filteredPokemons, setFilteredPokemons] = useState<string[]>([]);
-
-  useEffect(() => {
-    const filterPokemonName = () => {
-      foundPokemon.map((pokemon) => {
-        if (pokemon.found)
-          setFilteredPokemons([...filteredPokemons, pokemon.name]);
-      });
-    };
-    filterPokemonName();
-  }, [foundPokemon]);
 
   return (
     <header className="grid grid-rows-1 grid-cols-[2fr_3fr_1fr] items-center px-8 pt-4 shadow-[0_2px_2px_0_rgba(0,0,0,0.3)] ">
       <h1 className="text-3xl font-semibold">Where is...</h1>
       <div className="flex items-center gap-6 justify-self-end">
-        <div className="flex items-center gap-2">
-          <img src="/images/warturtle.png" alt="war turtle, the pokemon" />
-          <h3
-            className={`${
-              filteredPokemons.includes("Warturtle")
-                ? "line-through decoration-red-300"
-                : ""
-            }`}
-          >
-            Warturtle
-          </h3>
-        </div>
-        <div className="flex items-center gap-2">
-          <img src="/images/jolteon.png" alt="jolteon, the pokemon" />
-          <h3
-            className={`${
-              filteredPokemons.includes("Jolteon")
-                ? "line-through decoration-red-300"
-                : ""
-            }`}
-          >
-            Jolteon
-          </h3>
-        </div>
-        <div className="flex items-center gap-2">
-          <img src="/images/ivysaur.png" alt="ivysaur, the pokemon" />
-          <h3
-            className={`${
-              filteredPokemons.includes("Ivysaur")
-                ? "line-through decoration-red-300"
-                : ""
-            }`}
-          >
-            Ivysaur
-          </h3>
-        </div>
+        {foundPokemon.map((pokemon) => {
+          return (
+            <div key={pokemon._id} className="flex items-center gap-2">
+              <img
+                src={`/images/${pokemon.name.toLowerCase()}.png`}
+                alt={`${pokemon.name}, the pokemon`}
+              />
+              <h3
+                className={`${
+                  pokemon.found ? "line-through decoration-red-300" : ""
+                }`}
+              >
+                {pokemon.name}
+              </h3>
+            </div>
+          );
+        })}
       </div>
       <Timer />
     </header>
