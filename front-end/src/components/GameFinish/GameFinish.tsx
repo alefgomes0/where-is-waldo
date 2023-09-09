@@ -8,7 +8,7 @@ type GameFinishProps = {
 
 export const GameFinish = ({ gameFinished, playerTime }: GameFinishProps) => {
   const [showForm, setShowForm] = useState(true);
-  const [inputContent, setInputContent] = useState<string>("");
+  const [inputContent, setInputContent] = useState("");
 
   return gameFinished && showForm ? (
     <div className="fixed top-0 left-50 w-full h-screen grid grid-rows-1 grid-cols-1">

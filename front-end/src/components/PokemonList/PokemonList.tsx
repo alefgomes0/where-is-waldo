@@ -1,12 +1,15 @@
 import axios from "axios";
 import { useGameContext } from "../../types/useGameContext";
 import { PokemonProps } from "../../types/pokemon";
+import { PositionProps } from "../../types/positionProps";
 
 type PokemonListProps = {
   x: number;
   y: number;
   pageYPosition: number;
   hideSelector: () => void;
+  rightAnswerPosition: PositionProps[];
+  setRightAnswerPosition: React.Dispatch<React.SetStateAction<PositionProps[]>>;
 };
 
 export const PokemonList = ({
@@ -14,6 +17,8 @@ export const PokemonList = ({
   y,
   pageYPosition,
   hideSelector,
+  rightAnswerPosition,
+  setRightAnswerPosition,
 }: PokemonListProps) => {
   const { checkAnswer, setCheckAnswer } = useGameContext();
   const { foundPokemon } = checkAnswer;
@@ -47,12 +52,15 @@ export const PokemonList = ({
         },
       });
       response.data.message === "right"
-        ? setCheckAnswer({
+        ? (setCheckAnswer({
             requestError: "",
             rightAnswer: true,
             pokemonName: name,
             foundPokemon: changeFoundStatus(foundPokemon, name),
-          })
+          }),
+          setRightAnswerPosition(
+            rightAnswerPosition.concat({ x: x, y: y })
+          ))
         : setCheckAnswer({
             requestError: "",
             rightAnswer: false,
@@ -93,7 +101,7 @@ export const PokemonList = ({
 
   return (
     <div
-      className={`grid grid-cols-1 grid-rows-${calculateGridRows(
+      className={`z-10 grid grid-cols-1 grid-rows-${calculateGridRows(
         foundPokemon
       )} fixed w-max h-72 bg-neutral-600 rounded`}
       style={{ ...dropDownStyle }}

@@ -5,7 +5,7 @@ export const Home = () => {
   return (
     <div>
       <Header />
-      <main>
+      <main className="relative">
         <img
           src="/images/pokemon-bg.png"
           alt="an amalgamation of pokemons"
