@@ -22,6 +22,7 @@ export const PokemonList = ({
     setRightAnswerPosition,
   } = useGameContext();
   const { foundPokemon } = checkAnswer;
+  const isDesktop = window.innerWidth > 768;
 
   const calculateGridRows = (foundPokemon: PokemonProps[]) => {
     const foundPokemons = foundPokemon.filter(
@@ -49,6 +50,7 @@ export const PokemonList = ({
           name: name,
           width: window.innerWidth / x,
           height: pageYPosition,
+          isDesktop: isDesktop
         },
       });
       response.data.message === "right"
