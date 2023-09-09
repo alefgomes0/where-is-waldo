@@ -1,15 +1,12 @@
 import axios from "axios";
 import { useGameContext } from "../../types/useGameContext";
 import { PokemonProps } from "../../types/pokemon";
-import { PositionProps } from "../../types/positionProps";
 
 type PokemonListProps = {
   x: number;
   y: number;
   pageYPosition: number;
   hideSelector: () => void;
-  rightAnswerPosition: PositionProps[];
-  setRightAnswerPosition: React.Dispatch<React.SetStateAction<PositionProps[]>>;
 };
 
 export const PokemonList = ({
@@ -17,10 +14,13 @@ export const PokemonList = ({
   y,
   pageYPosition,
   hideSelector,
-  rightAnswerPosition,
-  setRightAnswerPosition,
 }: PokemonListProps) => {
-  const { checkAnswer, setCheckAnswer } = useGameContext();
+  const {
+    checkAnswer,
+    setCheckAnswer,
+    rightAnswerPosition,
+    setRightAnswerPosition,
+  } = useGameContext();
   const { foundPokemon } = checkAnswer;
 
   const calculateGridRows = (foundPokemon: PokemonProps[]) => {
@@ -58,9 +58,7 @@ export const PokemonList = ({
             pokemonName: name,
             foundPokemon: changeFoundStatus(foundPokemon, name),
           }),
-          setRightAnswerPosition(
-            rightAnswerPosition.concat({ x: x, y: y })
-          ))
+          setRightAnswerPosition(rightAnswerPosition.concat({ x: x, y: pageYPosition - 68 })))
         : setCheckAnswer({
             requestError: "",
             rightAnswer: false,

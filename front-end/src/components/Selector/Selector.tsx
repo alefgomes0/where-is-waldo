@@ -2,18 +2,13 @@ import { useEffect, useState, useRef } from "react";
 import { CircleAround } from "../CircleAround/CircleAround";
 import { PokemonList } from "../PokemonList/PokemonList";
 import { PositionProps } from "../../types/positionProps";
-import { Marker } from "../Marker/Marker";
 
 export const Selector = () => {
   const [position, setPosition] = useState<PositionProps>({ x: 0, y: 0 });
   const [showSelector, setShowSelector] = useState<boolean>(false);
-  const [rightAnswerPosition, setRightAnswerPosition] = useState<
-    PositionProps[]
-  >([]);
 
   const divRef = useRef<HTMLDivElement>(null);
   const pageYPosition = useRef<number>(0);
- 
 
   useEffect(() => {
     const changeCirclePosition = (e: MouseEvent) => {
@@ -36,10 +31,7 @@ export const Selector = () => {
         y={position.y}
         pageYPosition={pageYPosition.current}
         hideSelector={() => setShowSelector(!showSelector)}
-        rightAnswerPosition={rightAnswerPosition}
-        setRightAnswerPosition={setRightAnswerPosition}
       />
-      <Marker rightAnswerPosition={rightAnswerPosition} />
     </div>
   );
 };
