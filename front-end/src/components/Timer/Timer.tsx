@@ -23,7 +23,7 @@ export const Timer = () => {
   }, [running, setTime, gameFinished, setFinishedTime, time]);
 
   return (
-    <div className="justify-self-end">
+    <div className="justify-self-end row-start-1 row-end-2">
       <p className="text-lg text-gray-700">{formatTimer(time)}</p>
     </div>
   );
