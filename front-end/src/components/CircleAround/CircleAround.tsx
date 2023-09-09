@@ -1,7 +1,7 @@
 type CircleAroundProps = {
-  x: number,
-  y: number
-}
+  x: number;
+  y: number;
+};
 
 export const CircleAround = ({ x, y }: CircleAroundProps) => {
   const circleStyle = {

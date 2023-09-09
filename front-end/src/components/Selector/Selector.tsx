@@ -1,10 +1,12 @@
 import { useEffect, useState, useRef } from "react";
 import { CircleAround } from "../CircleAround/CircleAround";
 import { PokemonList } from "../PokemonList/PokemonList";
+
 type PositionProps = {
   x: number;
   y: number;
 };
+
 
 
 export const Selector = () => {
@@ -27,7 +29,10 @@ export const Selector = () => {
   }, [position, showSelector]);
 
   return (
-    <div ref={divRef} className={`${showSelector ? "grid" : "hidden"}`}>
+    <div
+      ref={divRef}
+      className={`${showSelector ? "grid" : "hidden"}`}
+    >
       <CircleAround x={position.x} y={position.y} />
       <PokemonList
         x={position.x}

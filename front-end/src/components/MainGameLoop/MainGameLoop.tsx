@@ -3,9 +3,10 @@ import { FeedbackMessage } from "../FeedbackMessage/FeedbackMessage";
 import { useGameContext } from "../../types/useGameContext";
 import { useEffect } from "react";
 import axios from "axios";
+import { GameFinish } from "../GameFinish/GameFinish";
 
 export const MainGameLoop = () => {
-  const { checkAnswer, setCheckAnswer, setGameFinished } = useGameContext();
+  const { checkAnswer, setCheckAnswer, gameFinished, setGameFinished, finishedTime } = useGameContext();
   const { foundPokemon, requestError, pokemonName, rightAnswer } = checkAnswer;
 
   useEffect(() => {
@@ -30,10 +31,10 @@ export const MainGameLoop = () => {
 
   useEffect(() => {
     const calculateRemainingPokemons = () => {
-      const remainingPokemons = foundPokemon.filter(
+      const poekmons = foundPokemon.filter(
         (pokemon) => pokemon.found === true
       );
-      if (remainingPokemons.length === 3) setGameFinished(true);
+      if (poekmons.length === 3) setGameFinished(true);
     };
     calculateRemainingPokemons();
   }, [foundPokemon, setGameFinished]);
@@ -46,6 +47,7 @@ export const MainGameLoop = () => {
         requestError={requestError}
         pokemonName={pokemonName}
       />
+      <GameFinish gameFinished={gameFinished} playerTime={finishedTime}/>
     </>
   );
 };
