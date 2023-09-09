@@ -12,7 +12,6 @@ export const MainGameLoop = () => {
     const fetchPokemonData = async () => {
       try {
         const response = await axios.get("http://localhost:3000/pokemon");
-        console.log(response.data[0].allPokemons);
         if (response.status === 200)
           setCheckAnswer({
             ...checkAnswer,
@@ -26,6 +25,7 @@ export const MainGameLoop = () => {
       }
     };
     fetchPokemonData();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   useEffect(() => {
