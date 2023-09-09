@@ -12,7 +12,11 @@ export const GameFinish = ({ gameFinished, playerTime }: GameFinishProps) => {
 
   return gameFinished && showForm ? (
     <div className="fixed top-0 left-50 w-full h-screen grid grid-rows-1 grid-cols-1">
-      <div className="grid justify-self-center self-center w-min px-8 h-36 bg-gray-900 rounded text-emerald-50">
+      <div
+        className={`opacity-0 grid justify-self-center self-center w-min px-8 h-36 bg-gray-900 rounded text-emerald-50 ${
+          gameFinished ? "opacity-100" : "opacity-0"
+        } transition-opacity duration-500 delay-300`}
+      >
         <form
           method="POST"
           action="http://localhost:3000/time"

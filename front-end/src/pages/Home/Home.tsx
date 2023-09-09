@@ -3,6 +3,7 @@ import { MainGameLoop } from "../../components/MainGameLoop/MainGameLoop";
 import { Marker } from "../../components/Marker/Marker";
 
 export const Home = () => {
+
   return (
     <div>
       <Header />
