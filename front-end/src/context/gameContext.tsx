@@ -1,5 +1,6 @@
 import { createContext, useState } from "react";
 import { checkAnswer } from "../types/checkAnswer";
+import { PokemonProps } from "../types/pokemon";
 
 type GameContextProviderProps = {
   children: React.ReactNode;
@@ -10,7 +11,7 @@ type GameContextValues = {
     requestError: string;
     rightAnswer: boolean;
     pokemonName: string;
-    foundPokemon: string[];
+    foundPokemon: PokemonProps[];
   };
   setCheckAnswer: React.Dispatch<React.SetStateAction<checkAnswer>>;
   gameFinished: boolean;

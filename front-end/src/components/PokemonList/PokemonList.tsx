@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useGameContext } from "../../types/useGameContext";
+import { PokemonProps } from "../../types/pokemon";
 
 type PokemonListProps = {
   x: number;
@@ -15,6 +16,25 @@ export const PokemonList = ({
   hideSelector,
 }: PokemonListProps) => {
   const { checkAnswer, setCheckAnswer } = useGameContext();
+  const { foundPokemon } = checkAnswer;
+
+  const calculateGridRows = (foundPokemon: PokemonProps[]) => {
+    const foundPokemons = foundPokemon.filter(
+      (pokemon) => pokemon.found
+    ).length;
+
+    if (foundPokemons === 0) return 3;
+    else if (foundPokemons === 1) return 2;
+    else return 1;
+  };
+
+  const changeFoundStatus = (list: PokemonProps[], pokemonName: string) => {
+    return list.map((pokemon) => {
+      if (pokemon.name !== pokemonName) return pokemon;
+      else return { ...pokemon, found: true };
+    });
+  };
+
   const checkSelectedPokemon = async (name: string) => {
     try {
       const response = await axios({
@@ -31,13 +51,13 @@ export const PokemonList = ({
             requestError: "",
             rightAnswer: true,
             pokemonName: name,
-            foundPokemon: checkAnswer.foundPokemon.concat(name),
+            foundPokemon: changeFoundStatus(foundPokemon, name),
           })
         : setCheckAnswer({
             requestError: "",
             rightAnswer: false,
             pokemonName: name,
-            foundPokemon: [...checkAnswer.foundPokemon],
+            foundPokemon: [...foundPokemon],
           });
     } catch (err) {
       console.error(err);
@@ -73,42 +93,27 @@ export const PokemonList = ({
 
   return (
     <div
-      className="grid grid-cols-1 grid-rows-3 fixed w-max h-72 bg-neutral-600 rounded"
+      className={`grid grid-cols-1 grid-rows-${calculateGridRows(
+        foundPokemon
+      )} fixed w-max h-72 bg-neutral-600 rounded`}
       style={{ ...dropDownStyle }}
     >
-      <button
-        onClick={() => handleOnClick("Warturtle")}
-        className="flex items-center w-full justify-self-center w-full h-full hover:bg-neutral-500 transition-colors gap-1 px-2"
-      >
-        <img
-          src="/images/warturtle.png"
-          alt="warturtle, the pokemon"
-          className="w-12 h-12 rounded"
-        />
-        <h5 className="text-neutral-200">Warturtle</h5>
-      </button>
-      <button
-        onClick={() => handleOnClick("Jolteon")}
-        className="flex items-center w-full justify-self-center w-full h-full hover:bg-neutral-500 transition-colors gap-1 px-2"
-      >
-        <img
-          src="/images/jolteon.png"
-          alt="jolteon, the pokemon"
-          className="w-12 h-12 rounded"
-        />
-        <h5 className="text-neutral-200">Jolteon</h5>
-      </button>
-      <button
-        onClick={() => handleOnClick("Ivysaur")}
-        className="flex items-center w-full justify-self-center w-full h-full hover:bg-neutral-500 transition-colors gap-1 px-2"
-      >
-        <img
-          src="/images/ivysaur.png"
-          alt="ivysaur, the pokemon"
-          className="w-12 h-12 rounded"
-        />
-        <h5 className="text-neutral-200">Ivysaur</h5>
-      </button>
+      {foundPokemon.map((pokemon) => {
+        if (pokemon.found) return;
+        return (
+          <button
+            key={pokemon._id}
+            onClick={() => handleOnClick(pokemon.name)}
+            className="flex items-center w-full justify-self-center w-full hover:bg-neutral-500 transition-colors gap-1 px-2"
+          >
+            <img
+              src={`/images/${pokemon.name.toLowerCase()}.png`}
+              alt={`${pokemon.name}, the pokemon`}
+            />
+            <h5 className="text-neutral-200">{pokemon.name}</h5>
+          </button>
+        );
+      })}
     </div>
   );
 };
