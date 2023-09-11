@@ -4,6 +4,7 @@ import { useGameContext } from "../../types/useGameContext";
 import { useEffect } from "react";
 import { GameFinish } from "../GameFinish/GameFinish";
 import axios from "axios";
+import { useParams } from "react-router";
 
 export const MainGameLoop = () => {
   const {
@@ -14,11 +15,14 @@ export const MainGameLoop = () => {
     finishedTime,
   } = useGameContext();
   const { foundPokemon, requestError, pokemonName, rightAnswer } = checkAnswer;
+  const { cityName } = useParams();
 
   useEffect(() => {
     const fetchPokemonData = async () => {
       try {
-        const response = await axios.get("http://localhost:3000/pokemon");
+        const response = await axios.get(
+          `http://localhost:3000/pokemon/${cityName}`
+        );
         if (response.status === 200)
           setCheckAnswer({
             ...checkAnswer,

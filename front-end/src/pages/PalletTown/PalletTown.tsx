@@ -1,4 +1,4 @@
-import { PTHeader } from "../../components/Header/PTHeader";
+import { PTHeader } from "../../components/PTHeader/PTHeader";
 import { MainGameLoop } from "../../components/MainGameLoop/MainGameLoop";
 import { Marker } from "../../components/Marker/Marker";
 

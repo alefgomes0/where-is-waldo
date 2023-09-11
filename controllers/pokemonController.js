@@ -2,7 +2,7 @@ const Pokemon = require("../models/pokemon");
 const asyncHandler = require("express-async-handler");
 
 exports.get = asyncHandler(async (req, res, next) => {
-  const allPokemons = await Pokemon.find();
+  const allPokemons = await Pokemon.find({ map: req.params.cityName });
   res.status(200).json([{ allPokemons }]);
 });
 

@@ -1,9 +1,8 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "./App.css";
 import { Home } from "./pages/Home/Home";
-import { PalletTown } from "./pages/PalletTown/PalletTown";
 import { GameContextProvider } from "./context/gameContext";
-import { ViridianCity } from "./pages/ViridianCity/ViridianCity";
+import { City } from "./components/City/City";
 
 const App = () => {
   return (
@@ -11,8 +10,9 @@ const App = () => {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/pallet-town" element={<PalletTown />} />
-          <Route path="viridian-city" element={<ViridianCity />} />
+          <Route path="map">
+            <Route path=":cityName" element={<City />} />
+          </Route>
         </Routes>
       </BrowserRouter>
     </GameContextProvider>

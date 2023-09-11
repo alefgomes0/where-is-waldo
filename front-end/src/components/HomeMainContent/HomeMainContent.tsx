@@ -8,14 +8,14 @@ export const HomeMainContent = () => {
       ></div>
       <Link
         className="absolute top-[25%] left-[20%]"
-        to="/pallet-town"
+        to="map/pallet"
         onClick={() => window.scrollTo({ top: 0, behavior: "instant" })}
       >
         <div className="w-96 h-[450px] bg-transparent"></div>
       </Link>
       <Link
         className="absolute top-[25%] right-[20%]"
-        to="/viridian-city"
+        to="map/viridian"
         onClick={() => window.scrollTo({ top: 0, behavior: "instant" })}
       >
         <div className="w-96 h-[450px] bg-transparent"></div>
