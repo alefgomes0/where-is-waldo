@@ -22,11 +22,7 @@ exports.post = asyncHandler(async (req, res, next) => {
     clickedPokemon.min_height <= req.body.height &&
     clickedPokemon.max_height >= req.body.height;
 
-  
-
-  const rightAnswer = isDesktop ? desktopAnswer : mobileAnswer
-  console.log(clickedPokemon.d_min_width_ratio, clickedPokemon.d_max_width_ratio);
-  console.log(req.body.width)
+  const rightAnswer = isDesktop ? desktopAnswer : mobileAnswer;
 
   if (rightAnswer) res.json({ message: "right" });
   else res.json({ message: "wrong" });
