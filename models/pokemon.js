@@ -13,6 +13,8 @@ const PokemonSchema = new Schema({
   d_max_width_ratio: { type: Number },
   m_min_width_ratio: { type: Number },
   m_max_width_ratio: { type: Number },
+  verm_min_width_ratio: { type: Number },
+  verm_max_width_ratio: { type: Number },
   found: { type: Boolean },
   map: { type: String },
 });

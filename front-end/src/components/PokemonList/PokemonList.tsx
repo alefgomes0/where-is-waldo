@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useGameContext } from "../../types/useGameContext";
 import { PokemonProps } from "../../types/pokemon";
+import { useParams } from "react-router";
 
 type PokemonListProps = {
   x: number;
@@ -23,6 +24,7 @@ export const PokemonList = ({
   } = useGameContext();
   const { foundPokemon } = checkAnswer;
   const isDesktop = window.innerWidth > 768;
+  const { cityName } = useParams();
 
   const calculateGridRows = (foundPokemon: PokemonProps[]) => {
     const foundPokemons = foundPokemon.filter(
@@ -50,7 +52,9 @@ export const PokemonList = ({
           name: name,
           width: window.innerWidth / x,
           height: pageYPosition,
-          isDesktop: isDesktop
+          heightRatio: window.innerHeight / pageYPosition,
+          isDesktop: isDesktop,
+          map: cityName
         },
       });
       response.data.message === "right"
