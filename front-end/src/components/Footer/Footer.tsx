@@ -1,6 +1,6 @@
 export const Footer = () => {
   return (
-    <footer className="h-8 flex items-center gap-2 px-16 bg-emerald-600 text-emerald-50 justify-end">
+    <footer className="h-8 flex items-center gap-2 px-2 md:px-16 bg-emerald-600 text-emerald-50 justify-end">
       <h4>Alexandre Figueiredo Gomes</h4>
 
       <a href="https://github.com/alefgomes0" rel="noreferrer">

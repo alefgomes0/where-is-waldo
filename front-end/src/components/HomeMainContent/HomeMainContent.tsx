@@ -3,26 +3,22 @@ import { useWindowSize } from "../../customHooks/useWindowSize";
 
 export const HomeMainContent = () => {
   const windowSize = useWindowSize();
-  console.log(windowSize);
+
+  const defineWindowSize = () => {
+    if (windowSize < 750) return "-mb";
+    else if (windowSize > 750 && windowSize < 1250) return "-eq";
+    else return "";
+  };
 
   return (
-    <main className="relative grid grid-rows-1 grid-cols-1">
-      <div className="grid grid-cols-1 grid-rows-1 w-screen lg:w-[auto]">
-        {windowSize > 768 ? (
-          <img
-            src="/images/lp-bg.png"
-            alt="a forest with trees, birds and clouds on the background"
-            height="calc(100dvh-75px)"
-            width="100%"
-          />
-        ) : (
-          <img
-            src="/images/lp-bg-mb.png"
-            alt="a forest with trees, birds and clouds on the background"
-            width="100%"
-            height="calc(100dvh-75px)"
-          />
-        )}
+    <main className="relative grid grid-rows-1 grid-cols-1 overflow-hidden">
+      <div className="grid grid-cols-1 grid-rows-1 h-[cal(100dvh-75px)] w-screen lg:w-[auto]">
+        <img
+          src={`/images/lp-bg${defineWindowSize()}.png`}
+          alt="a forest with trees, birds and clouds on the background"
+          height="100%"
+          width="100%"
+        />
       </div>
       <Link
         className="absolute top-[25%] left-[20%]"
