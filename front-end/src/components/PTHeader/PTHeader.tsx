@@ -25,8 +25,8 @@ export const PTHeader = () => {
               <img
                 src={`/images/${pokemon.name.toLowerCase()}.png`}
                 alt={`${pokemon.name}, the pokemon`}
-                width={`${windowSize > 768 ? 50 : 30}`}
-                height={`${windowSize > 768 ? 50 : 30}`}
+                width={`${windowSize > 768 ? 45 : 30}`}
+                height={`${windowSize > 768 ? 45 : 30}`}
               />
               <h3
                 className={`text-sm md:text-base ${
