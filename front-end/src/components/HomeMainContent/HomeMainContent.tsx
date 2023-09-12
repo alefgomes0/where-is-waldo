@@ -4,17 +4,16 @@ import { useWindowSize } from "../../customHooks/useWindowSize";
 export const HomeMainContent = () => {
   const windowSize = useWindowSize();
 
-  const defineWindowSize = () => {
-    if (windowSize < 750) return "-mb";
-    else if (windowSize > 750 && windowSize < 1250) return "-eq";
-    else return "";
-  };
+  let defineImage: string;
+  if (windowSize < 750) defineImage = "-mb";
+  else if (windowSize > 750 && windowSize < 1250) defineImage = "-eq";
+  else defineImage = "";
 
   return (
     <main className="relative grid grid-rows-1 grid-cols-1 overflow-hidden">
       <div className="grid grid-cols-1 grid-rows-1 h-[cal(100dvh-75px)] w-screen lg:w-[auto]">
         <img
-          src={`/images/lp-bg${defineWindowSize()}.png`}
+          src={`/images/lp-bg${defineImage}.png`}
           alt="a forest with trees, birds and clouds on the background"
           height="100%"
           width="100%"
