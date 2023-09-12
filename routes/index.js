@@ -6,6 +6,7 @@ const leaderboard = require("../controllers/leaderboard")
 router.get("/pokemon/:cityName", pokemonController.get);
 router.post("/pokemon", pokemonController.post);
 
+router.get("/leaderboard/:map", leaderboard.get)
 router.post("/leaderboard", leaderboard.post)
 
 module.exports = router;

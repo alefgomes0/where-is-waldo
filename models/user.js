@@ -6,6 +6,7 @@ const UserSchema = new Schema({
   time: { type: Number, required: true },
   formattedTime: { type: String, required: true },
   map: { type: String, required: true },
+  date: { type: Date },
 });
 
 module.exports = mongoose.model("User", UserSchema);
