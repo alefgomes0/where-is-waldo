@@ -2,13 +2,28 @@ import { Link } from "react-router-dom";
 import { useWindowSize } from "../../customHooks/useWindowSize";
 
 export const HomeMainContent = () => {
-  useWindowSize();
+  const windowSize = useWindowSize();
+  console.log(windowSize);
 
   return (
     <main className="relative grid grid-rows-1 grid-cols-1">
-      <div
-        className={`h-[150dvh] aspect-[3.6/6.7] sm:aspect-auto md:h-[calc(125dvh-125px)] bg-[url('/images/lp-bg-mb.png')] md:bg-[url('/images/lp-bg-eq.png')] lg:bg-[url('/images/lp-bg.png')] bg-cover md:bg-center md:bg-cover bg-no-repeat`}
-      ></div>
+      <div className="grid grid-cols-1 grid-rows-1 w-screen lg:w-[auto]">
+        {windowSize > 768 ? (
+          <img
+            src="/images/lp-bg.png"
+            alt="a forest with trees, birds and clouds on the background"
+            height="calc(100dvh-75px)"
+            width="100%"
+          />
+        ) : (
+          <img
+            src="/images/lp-bg-mb.png"
+            alt="a forest with trees, birds and clouds on the background"
+            width="100%"
+            height="calc(100dvh-75px)"
+          />
+        )}
+      </div>
       <Link
         className="absolute top-[25%] left-[20%]"
         to="map/pallet"
