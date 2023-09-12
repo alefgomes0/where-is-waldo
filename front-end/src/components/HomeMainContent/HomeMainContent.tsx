@@ -1,6 +1,5 @@
 import { Link } from "react-router-dom";
 import { useWindowSize } from "../../customHooks/useWindowSize";
-import { MouseEventHandler } from "react";
 
 export const HomeMainContent = () => {
   const windowSize = useWindowSize();
