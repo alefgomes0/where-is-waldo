@@ -9,6 +9,25 @@ export const HomeMainContent = () => {
   else if (windowSize > 750 && windowSize < 1250) defineImage = "-eq";
   else defineImage = "";
 
+  let defineLink: string;
+  let defineLink2: string;
+  if (defineImage === "-mb") {
+    defineLink = "absolute top-[25%] right-[25%]";
+    defineLink2 = "absolute top-[56%] left-[25%]";
+  } else if (defineImage === "-eq") {
+    defineLink = "absolute top-[15%] left-[35%]";
+    defineLink2 = "absolute top-[55%] left-[35%]";
+  } else {
+    defineLink = "absolute top-[20%] left-[20%]";
+    defineLink2 = "absolute top-[20%] left-[54%]";
+  }
+
+  let defineDiv = "";
+  if (defineImage === "-mb") defineDiv = "w-[180px] h-[200px] bg-transparent";
+  else if (defineImage === "-eq")
+    defineDiv = "w-[360px] h-[350px] bg-transparent";
+  if (defineImage === "") defineDiv = "w-96 h-[450px] bg-transparent";
+
   return (
     <main className="relative grid grid-rows-1 grid-cols-1 overflow-hidden">
       <div className="grid grid-cols-1 grid-rows-1 h-[cal(100dvh-75px)] w-screen lg:w-[auto]">
@@ -20,18 +39,18 @@ export const HomeMainContent = () => {
         />
       </div>
       <Link
-        className="absolute top-[25%] left-[20%]"
+        className={defineLink}
         to="map/pallet"
         onClick={() => window.scrollTo({ top: 0, behavior: "instant" })}
       >
-        <div className="w-96 h-[450px] bg-transparent"></div>
+        <div className={defineDiv}></div>
       </Link>
       <Link
-        className="absolute top-[25%] right-[20%]"
+        className={defineLink2}
         to="map/viridian"
         onClick={() => window.scrollTo({ top: 0, behavior: "instant" })}
       >
-        <div className="w-96 h-[450px] bg-transparent"></div>
+        <div className={defineDiv}></div>
       </Link>
     </main>
   );

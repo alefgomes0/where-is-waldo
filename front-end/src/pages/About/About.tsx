@@ -4,7 +4,7 @@ export const About = () => {
   return (
     <>
       <Header />
-      <main className="grid grid-cols-1 grid-rows-1 h-[calc(100dvh-75px)] bg-gradient-to-r from-sky-500 to-indigo-500 px-16">
+      <main className="grid grid-cols-1 grid-rows-1 h-[calc(100dvh-50px)] bg-gradient-to-r from-sky-500 to-indigo-500 px-16">
         <div className="flex flex-col gap-6 text-2xl text-neutral-300  mt-16">
           <h3>
             This is a project, based on the{" "}
@@ -47,7 +47,7 @@ export const About = () => {
           </h3>
           <h3>Pokemon is a trademark of Nintendo</h3>
           <h3>
-            Project made by{" "}
+            The project was made by{" "}
             <a
               href="http://alefg.com"
               rel="noreferrer"
