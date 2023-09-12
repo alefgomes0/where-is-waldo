@@ -12,7 +12,12 @@ export default {
           "25%": { opacity: "100%" },
           "75%": { opacity: "100%" },
           "100%": { opacity: "0%" }
-        }
+        },
+        in: {
+          "0%": { opacity: "0%" },
+          "50%": { opacity: "100%" },
+          "100%": { opacity: "100%" }
+        },
       }
     },
   },

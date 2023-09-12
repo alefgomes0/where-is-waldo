@@ -15,13 +15,6 @@ export const Selector = () => {
       if (divRef.current?.contains(e.target as Node)) return;
       setPosition({ x: e.clientX, y: e.clientY });
       setShowSelector(!showSelector);
-      console.log(
-        e.clientX,
-        window.innerWidth,
-        window.innerWidth / e.clientX,
-        e.pageY,
-        window.innerHeight / e.pageY
-      );
       pageYPosition.current = e.pageY;
     };
 

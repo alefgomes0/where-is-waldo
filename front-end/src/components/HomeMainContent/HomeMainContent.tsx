@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { useWindowSize } from "../../customHooks/useWindowSize";
+import { MouseEventHandler } from "react";
 
 export const HomeMainContent = () => {
   const windowSize = useWindowSize();
@@ -41,14 +42,20 @@ export const HomeMainContent = () => {
       <Link
         className={defineLink}
         to="map/pallet"
-        onClick={() => window.scrollTo({ top: 0, behavior: "instant" })}
+        onClick={(e: React.MouseEvent) => {
+          e.stopPropagation();
+          window.scrollTo({ top: 0, behavior: "instant" });
+        }}
       >
         <div className={defineDiv}></div>
       </Link>
       <Link
         className={defineLink2}
         to="map/viridian"
-        onClick={() => window.scrollTo({ top: 0, behavior: "instant" })}
+        onClick={(e: React.MouseEvent) => {
+          e.stopPropagation();
+          window.scrollTo({ top: 0, behavior: "instant" });
+        }}
       >
         <div className={defineDiv}></div>
       </Link>

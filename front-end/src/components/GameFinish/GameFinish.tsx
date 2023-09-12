@@ -13,7 +13,7 @@ export const GameFinish = ({ gameFinished, playerTime }: GameFinishProps) => {
   return gameFinished && showForm ? (
     <div className="fixed top-0 left-50 w-full h-screen grid grid-rows-1 grid-cols-1">
       <div
-        className={`opacity-0 grid justify-self-center self-center w-min px-8 h-36 bg-gray-900 rounded text-emerald-50 ${
+        className={`opacity-0 grid justify-self-center self-center w-min px-8 h-min py-4 border-4 border-gray-700 bg-gray-900 rounded-lg animate-[in_6s_ease-in-out] text-emerald-50 ${
           gameFinished ? "opacity-100" : "opacity-0"
         } transition-opacity duration-500 delay-300`}
       >
