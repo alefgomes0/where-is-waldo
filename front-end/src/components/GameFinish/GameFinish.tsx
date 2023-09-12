@@ -25,6 +25,7 @@ export const GameFinish = ({ gameFinished, playerTime }: GameFinishProps) => {
         formattedTime: formatTimer(finishedTime),
         map: cityName,
       });
+      setShowForm(false);
     } catch (err) {
       setError((err as Error).message);
     }

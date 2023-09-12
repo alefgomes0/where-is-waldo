@@ -4,7 +4,7 @@ const Schema = mongoose.Schema;
 const UserSchema = new Schema({
   name: { type: String, required: true },
   time: { type: Number, required: true },
-  formattedTime: { type: Number, required: true },
+  formattedTime: { type: String, required: true },
   map: { type: String, required: true },
 });
 
