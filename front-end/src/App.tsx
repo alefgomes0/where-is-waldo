@@ -6,8 +6,17 @@ import { City } from "./components/City/City";
 import { About } from "./pages/About/About";
 import { Leaderboard } from "./pages/Leaderboard/Leaderboard";
 import { LeaderboardContent } from "./components/LeaderboardContent/LeaderboardContent";
+import { useEffect } from "react";
+import axios from "axios";
 
 const App = () => {
+  useEffect(() => {
+    const wakeServerUp = async () => {
+      await axios.get("https://where-is-waldo-dcr7.onrender.com");
+    };
+    wakeServerUp();
+  }, []);
+
   return (
     <GameContextProvider>
       <BrowserRouter>
