@@ -22,7 +22,7 @@ export const LeaderboardContent = ({ map }: LeaderboardProps) => {
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          `http://localhost:3000/leaderboard/${map}`
+          `https://where-is-waldo-dcr7.onrender.com/leaderboard/${map}`
         );
         console.log(response.data);
         if (response.statusText === "OK") setUsers(response.data);

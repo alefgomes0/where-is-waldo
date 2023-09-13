@@ -21,7 +21,7 @@ export const MainGameLoop = () => {
     const fetchPokemonData = async () => {
       try {
         const response = await axios.get(
-          `http://localhost:3000/pokemon/${cityName}`
+          `https://where-is-waldo-dcr7.onrender.com/pokemon/${cityName}`
         );
         if (response.status === 200)
           setCheckAnswer({

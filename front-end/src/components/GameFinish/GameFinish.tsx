@@ -19,7 +19,7 @@ export const GameFinish = ({ gameFinished, playerTime }: GameFinishProps) => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     try {
-      await axios.post("http://localhost:3000/leaderboard", {
+      await axios.post("https://where-is-waldo-dcr7.onrender.com//leaderboard", {
         name: inputContent,
         time: finishedTime,
         formattedTime: formatTimer(finishedTime),

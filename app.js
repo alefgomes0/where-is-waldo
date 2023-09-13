@@ -7,10 +7,7 @@ const indexRouter = require("./routes/index");
 
 const app = express();
 require("dotenv").config();
-const corsOptions = {
-  origin: `${process.env.REQ_ORIGIN}`,
-  optionsSuccessStatus: 200,
-};
+
 
 const mongoose = require("mongoose");
 const mongoDB = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PWD}@cluster0.j0fm9pk.mongodb.net/?retryWrites=true&w=majority`;
@@ -24,7 +21,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.json());
 app.use(express.static(path.join(__dirname, "public")));
-app.use(cors(corsOptions));
+app.use(cors());
 app.use("/", indexRouter);
 
 app.use((err, req, res, next) => {
