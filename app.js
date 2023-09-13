@@ -10,6 +10,7 @@ require("dotenv").config();
 
 
 const mongoose = require("mongoose");
+const { hostname } = require("os");
 const mongoDB = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PWD}@cluster0.j0fm9pk.mongodb.net/?retryWrites=true&w=majority`;
 async function main() {
   await mongoose.connect(mongoDB);
@@ -30,5 +31,6 @@ app.use((err, req, res, next) => {
 
 app.listen(
   process.env.PORT,
+  "0.0.0.0",
   console.log(`Server started at port ${process.env.PORT}`)
 );
