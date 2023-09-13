@@ -8,7 +8,6 @@ const indexRouter = require("./routes/index");
 const app = express();
 require("dotenv").config();
 
-
 const mongoose = require("mongoose");
 const { hostname } = require("os");
 const mongoDB = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PWD}@cluster0.j0fm9pk.mongodb.net/?retryWrites=true&w=majority`;
@@ -26,7 +25,7 @@ app.use(cors());
 app.use("/", indexRouter);
 
 app.use((err, req, res, next) => {
-  console.error(err);
+  res.json(err);
 });
 
 app.listen(
