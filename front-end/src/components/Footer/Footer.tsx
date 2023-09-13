@@ -10,7 +10,7 @@ export const Footer = ({ backgroundColor, textColor }: FooterProps) => {
     >
       <h4>Alexandre Figueiredo Gomes</h4>
 
-      <a href="https://github.com/alefgomes0" rel="noreferrer">
+      <a href="https://github.com/alefgomes0" target="_blank" rel="noreferrer">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="20"

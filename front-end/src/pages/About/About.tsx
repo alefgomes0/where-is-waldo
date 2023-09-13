@@ -9,6 +9,7 @@ export const About = () => {
           <h3>
             This is a project, based on the{" "}
             <a
+              target="_blank"
               href="https://en.wikipedia.org/wiki/Where%27s_Wally%3F"
               rel="noreferrer"
               className="underline decoration-slate-700 underline-offset-4"
@@ -17,6 +18,7 @@ export const About = () => {
             </a>{" "}
             puzzle books, made to the{" "}
             <a
+              target="_blank"
               href="https://www.theodinproject.com/"
               rel="noreferrer"
               className="underline decoration-slate-700 underline-offset-4"
@@ -28,6 +30,7 @@ export const About = () => {
           <h3>
             The first map (Pallet Town) was made by{" "}
             <a
+              target="_blank"
               href="https://www.reddit.com/user/LordLibidan/"
               rel="noreferrer"
               className="underline decoration-slate-700 underline-offset-4"
@@ -38,6 +41,7 @@ export const About = () => {
           <h3>
             The second map (Viridian City) was taken from{" "}
             <a
+              target="_blank"
               href="https://www.reddit.com/user/LordLibidan/"
               rel="noreferrer"
               className="underline decoration-slate-700 underline-offset-4"
@@ -49,6 +53,7 @@ export const About = () => {
           <h3>
             The project was made by{" "}
             <a
+              target="_blank"
               href="http://alefg.com"
               rel="noreferrer"
               className="underline decoration-slate-700 underline-offset-4"
