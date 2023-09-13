@@ -47,7 +47,7 @@ export const PokemonList = ({
     try {
       const response = await axios({
         method: "post",
-        url: "https://where-is-waldo-dcr7.onrender.com//pokemon",
+        url: "https://where-is-waldo-dcr7.onrender.com/pokemon",
         data: {
           name: name,
           width: window.innerWidth / x,
