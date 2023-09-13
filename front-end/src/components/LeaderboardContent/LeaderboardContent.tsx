@@ -8,7 +8,6 @@ type UserProps = {
   time: number;
   formattedTime: string;
   date: Date;
-  date_formatted: string;
 };
 
 type LeaderboardProps = {
@@ -35,7 +34,6 @@ export const LeaderboardContent = ({ map }: LeaderboardProps) => {
     fetchData();
   }, [map]);
 
-
   return (
     <>
       {error ? (
@@ -60,7 +58,11 @@ export const LeaderboardContent = ({ map }: LeaderboardProps) => {
                   <td>{index + 1}</td>
                   <td>{user.name}</td>
                   <td>{user.formattedTime}</td>
-                  <td>{(user.date/)}</td>
+                  <td>
+                    {DateTime.fromISO(
+                      user.date.toLocaleString()
+                    ).toLocaleString()}
+                  </td>
                 </tr>
               );
             })}
