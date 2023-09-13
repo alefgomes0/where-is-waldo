@@ -39,7 +39,7 @@ export const LeaderboardContent = ({ map }: LeaderboardProps) => {
       {error ? (
         <h3 className="text-2xl">Something went wrong... {error}</h3>
       ) : (
-        <table className="table-auto w-[600px]">
+        <table className="table-auto w-[90%] sm:w-[400px] md:w-[600px]">
           <thead>
             <tr className="text-center h-[50px] grid grid-rows-1 grid-cols-4 items-center bg-neutral-500 text-lg opacity-90 rounded">
               <th>Position</th>
@@ -53,7 +53,7 @@ export const LeaderboardContent = ({ map }: LeaderboardProps) => {
               return (
                 <tr
                   key={user._id}
-                  className="h-[35px] text-sm justify-items-center items-center grid grid-rows-1 grid-cols-4 odd:bg-red-500 odd:text-red-50 even:bg-neutral-300 rounded"
+                  className="min-h-[35px] text-sm justify-items-center items-center grid grid-rows-1 grid-cols-4 odd:bg-red-500 odd:text-red-50 even:bg-neutral-300 rounded"
                 >
                   <td>{index + 1}</td>
                   <td>{user.name}</td>

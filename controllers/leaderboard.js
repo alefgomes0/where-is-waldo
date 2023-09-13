@@ -4,7 +4,7 @@ const User = require("../models/user");
 const Leaderboard = require("../models/user");
 
 exports.get = asyncHandler(async (req, res, next) => {
-  const leaderboard = await User.find({ map: req.params.map });
+  const leaderboard = await User.find({ map: req.params.map }).sort({ time: 1 }).exec()
   res.json(leaderboard);
 });
 

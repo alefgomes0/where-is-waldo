@@ -9,7 +9,7 @@ export const Leaderboard = () => {
   return (
     <>
       <Header backgroundColor="bg-gray-300" textColor="text-neutral-900" />
-      <main className="h-[calc(100dvh-75px)] px-16 bg-gray-50">
+      <main className="min-h-[calc(100dvh-75px)] px-2 md:px-16 bg-gray-50">
         <h2 className="text-4xl pt-16">Leaderboard</h2>
         <nav className="flex gap-2 mt-4 mb-8 text-neutral-700">
           <Link

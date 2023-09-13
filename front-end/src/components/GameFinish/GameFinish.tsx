@@ -52,6 +52,7 @@ export const GameFinish = ({ gameFinished, playerTime }: GameFinishProps) => {
                   setInputContent(e.target.value)
                 }
                 required
+                maxLength={15}
                 value={inputContent}
                 name="name"
                 className="text-neutral-800 mb-2 mt-1 rounded shadow-[0_3px_3px_0_rgba(0,0,0,0.2)_inset] border-0 outline-0 focus:ring-2 ring-blue-500"
