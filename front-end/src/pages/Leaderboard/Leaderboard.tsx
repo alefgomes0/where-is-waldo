@@ -8,8 +8,8 @@ export const Leaderboard = () => {
 
   return (
     <>
-      <Header backgroundColor="bg-gray-300" textColor="text-neutral-900" />
-      <main className="min-h-[calc(100dvh-75px)] px-2 md:px-16 bg-gray-50">
+      <Header backgroundColor="bg-gray-100" textColor="text-neutral-900" />
+      <main className="min-h-[calc(100dvh-75px)] px-2 md:px-16 bg-gray-50 bg-gray-200">
         <h2 className="text-4xl pt-16">Leaderboard</h2>
         <nav className="flex gap-2 mt-4 mb-8 text-neutral-700">
           <Link
@@ -33,7 +33,7 @@ export const Leaderboard = () => {
         </nav>
         <Outlet />
       </main>
-      <Footer backgroundColor="bg-gray-400" textColor="text-neutral-900" />
+      <Footer backgroundColor="bg-gray-300" textColor="text-neutral-900" />
     </>
   );
 };

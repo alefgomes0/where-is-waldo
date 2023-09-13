@@ -4,8 +4,8 @@ export const About = () => {
   return (
     <>
       <Header backgroundColor="bg-gray-50" textColor="text-black" />
-      <main className="grid grid-cols-1 grid-rows-1 h-[calc(100dvh-50px)] bg-gradient-to-r from-sky-500 to-indigo-500 px-16">
-        <div className="flex flex-col gap-6 text-2xl text-neutral-700  mt-16">
+      <main className="grid grid-cols-1 grid-rows-1 h-[calc(100dvh-50px)] bg-neutral-200 px-16">
+        <div className="flex flex-col gap-6 text-2xl text-neutral-700 mt-16">
           <h3>
             This is a project, based on the{" "}
             <a
