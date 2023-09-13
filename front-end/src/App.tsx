@@ -5,8 +5,7 @@ import { GameContextProvider } from "./context/gameContext";
 import { City } from "./components/City/City";
 import { About } from "./pages/About/About";
 import { Leaderboard } from "./pages/Leaderboard/Leaderboard";
-import { PalletLeaderboard } from "./components/PalletLeaderboard/PalletLeaderboard";
-import { ViridianLeaderboard } from "./components/ViridianLeaderboard/ViridianLeaderboard";
+import { LeaderboardContent } from "./components/LeaderboardContent/LeaderboardContent";
 
 const App = () => {
   return (
@@ -19,8 +18,14 @@ const App = () => {
           </Route>
           <Route path="about" element={<About />} />
           <Route path="leaderboard" element={<Leaderboard />}>
-            <Route path="pallet" element={<PalletLeaderboard />} />
-            <Route path="viridian" element={<ViridianLeaderboard />} />
+            <Route
+              path="pallet"
+              element={<LeaderboardContent map="pallet" />}
+            />
+            <Route
+              path="viridian"
+              element={<LeaderboardContent map="viridian" />}
+            />
           </Route>
         </Routes>
       </BrowserRouter>

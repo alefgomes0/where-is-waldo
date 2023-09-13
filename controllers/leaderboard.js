@@ -19,7 +19,6 @@ exports.post = [
       map: req.body.map,
       date: new Date(),
     });
-    console.log(req.body);
     await newUser.save();
     res.json("saved");
   }),
