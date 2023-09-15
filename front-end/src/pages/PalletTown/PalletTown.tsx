@@ -1,4 +1,4 @@
-import { PTHeader } from "../../components/PTHeader/PTHeader";
+import { MapHeader } from "../../components/MapHeader/MapHeader";
 import { MainGameLoop } from "../../components/MainGameLoop/MainGameLoop";
 import { Marker } from "../../components/Marker/Marker";
 
@@ -6,7 +6,7 @@ export const PalletTown = () => {
 
   return (
     <div>
-      <PTHeader />
+      <MapHeader />
       <main className="relative h-fit">
         <img
           src="/images/pokemon-bg.png"

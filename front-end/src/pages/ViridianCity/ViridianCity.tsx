@@ -1,4 +1,4 @@
-import { VHeader } from "../../components/VHeader/VHeader";
+import { MapHeader } from "../../components/MapHeader/MapHeader";
 import { MainGameLoop } from "../../components/MainGameLoop/MainGameLoop";
 import { Marker } from "../../components/Marker/Marker";
 import { useWindowSize } from "../../customHooks/useWindowSize";
@@ -8,7 +8,7 @@ export const ViridianCity = () => {
 
   return (
     <div>
-      <VHeader />
+      <MapHeader />
       <main className="relative h-fit">
         <img
           src="/images/pokemon-bg2.png"
