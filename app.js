@@ -1,19 +1,14 @@
+require("dotenv").config();
 const express = require("express");
+const app = express();
 const cors = require("cors");
 const path = require("path");
 const cookieParser = require("cookie-parser");
 const logger = require("morgan");
+const dbConn = require("./config/dbConn");
 const indexRouter = require("./routes/index");
 
-const app = express();
-require("dotenv").config();
-
-const mongoose = require("mongoose");
-const mongoDB = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PWD}@cluster0.j0fm9pk.mongodb.net/?retryWrites=true&w=majority`;
-async function main() {
-  await mongoose.connect(mongoDB);
-}
-main().catch((err) => console.log(err));
+dbConn();
 
 app.use(logger("dev"));
 app.use(express.urlencoded({ extended: false }));

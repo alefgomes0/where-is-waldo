@@ -17,6 +17,7 @@ const App = () => {
     wakeServerUp();
   }, []);
 
+  
   return (
     <GameContextProvider>
       <BrowserRouter>
