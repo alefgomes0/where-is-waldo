@@ -18,6 +18,10 @@ app.use(express.static(path.join(__dirname, "public")));
 app.use(cors());
 app.use("/", indexRouter);
 
+app.get("/*", (req, res) => {
+  res.sendFile(path.join(__dirname, "/public/index.html"))
+})
+
 app.use((err, req, res, next) => {
   res.json(err);
 });
