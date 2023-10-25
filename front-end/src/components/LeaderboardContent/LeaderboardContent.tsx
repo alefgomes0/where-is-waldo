@@ -26,7 +26,6 @@ export const LeaderboardContent = ({ map }: LeaderboardProps) => {
         const response = await axios.get(
           `https://where-is-waldo-dcr7.onrender.com/leaderboard/${map}`
         );
-        console.log(response.data);
         if (response.status === 200) setUsers(response.data);
       } catch (err) {
         setError((err as Error).message);
