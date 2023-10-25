@@ -19,7 +19,7 @@ app.use(cors());
 app.use("/", indexRouter);
 
 app.get("/*", (req, res) => {
-  res.sendFile(path.join(__dirname, "/public/index.html"))
+  res.sendFile(path.join(__dirname, "/front-end/index.html"))
 })
 
 app.use((err, req, res, next) => {
