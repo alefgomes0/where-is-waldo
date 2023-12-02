@@ -6,8 +6,11 @@ import { City } from "./components/City/City";
 import { About } from "./pages/About/About";
 import { Leaderboard } from "./pages/Leaderboard/Leaderboard";
 import { LeaderboardContent } from "./components/LeaderboardContent/LeaderboardContent";
+import { useWindowSize } from "./customHooks/useWindowSize";
 
 const App = () => {
+  const windowSize = useWindowSize();
+
   return (
     <BrowserRouter>
       <GameContextProvider>
@@ -22,10 +25,12 @@ const App = () => {
               path="pallet"
               element={<LeaderboardContent map="pallet" />}
             />
-            <Route
-              path="viridian"
-              element={<LeaderboardContent map="viridian" />}
-            />
+            {windowSize > 767 && (
+              <Route
+                path="viridian"
+                element={<LeaderboardContent map="viridian" />}
+              />
+            )}
           </Route>
         </Routes>
       </GameContextProvider>
