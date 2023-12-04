@@ -48,16 +48,18 @@ export const HomeMainContent = () => {
       >
         <div className={defineDiv}></div>
       </Link>
-      <Link
-        className={defineLink2}
-        to="map/viridian"
-        onClick={(e: React.MouseEvent) => {
-          e.stopPropagation();
-          window.scrollTo({ top: 0, behavior: "instant" });
-        }}
-      >
-        <div className={defineDiv}></div>
-      </Link>
+      {windowSize > 767 && (
+        <Link
+          className={defineLink2}
+          to="map/viridian"
+          onClick={(e: React.MouseEvent) => {
+            e.stopPropagation();
+            window.scrollTo({ top: 0, behavior: "instant" });
+          }}
+        >
+          <div className={defineDiv}></div>
+        </Link>
+      )}
     </main>
   );
 };
