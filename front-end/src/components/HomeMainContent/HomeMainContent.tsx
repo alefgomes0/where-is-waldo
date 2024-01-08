@@ -23,14 +23,15 @@ export const HomeMainContent = () => {
   }
 
   let defineDiv = "";
-  if (defineImage === "-mb") defineDiv = "w-[180px] h-[200px] bg-transparent";
+  if (defineImage === "-mb")
+    defineDiv = "relative w-[180px] h-[200px] bg-transparent";
   else if (defineImage === "-eq")
-    defineDiv = "w-[360px] h-[350px] bg-transparent";
-  if (defineImage === "") defineDiv = "w-96 h-[450px] bg-transparent";
+    defineDiv = "relative w-[360px] h-[350px] bg-transparent";
+  if (defineImage === "") defineDiv = "relative w-96 h-[450px] bg-transparent";
 
   return (
     <main className="relative grid grid-rows-1 grid-cols-1 overflow-hidden">
-      <div className="grid grid-cols-1 grid-rows-1 h-[cal(100dvh-75px)] w-screen lg:w-[auto]">
+      <div className="relative grid grid-cols-1 grid-rows-1 h-[cal(100dvh-75px)] w-screen lg:w-[auto]">
         <img
           src={`/images/lp-bg${defineImage}.png`}
           alt="a forest with trees, birds and clouds on the background"
@@ -38,16 +39,18 @@ export const HomeMainContent = () => {
           width="100%"
         />
       </div>
-      <Link
-        className={defineLink}
-        to="map/pallet"
-        onClick={(e: React.MouseEvent) => {
-          e.stopPropagation();
-          window.scrollTo({ top: 0, behavior: "instant" });
-        }}
-      >
-        <div className={defineDiv}></div>
-      </Link>
+      {windowSize < 767 && (
+        <Link
+          className={defineLink}
+          to="map/pallet"
+          onClick={(e: React.MouseEvent) => {
+            e.stopPropagation();
+            window.scrollTo({ top: 0, behavior: "instant" });
+          }}
+        >
+          <div className={defineDiv}></div>
+        </Link>
+      )}
       {windowSize > 767 && (
         <Link
           className={defineLink2}
